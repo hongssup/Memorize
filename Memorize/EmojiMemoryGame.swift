@@ -13,8 +13,8 @@ import SwiftUI
 //}     closure로 선언해주기
 
 // ViewModel as a class (easy to share)
-class EmojiMemoryGame {
-    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+class EmojiMemoryGame: ObservableObject {
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis = ["👻", "🎃", "🕷"]
