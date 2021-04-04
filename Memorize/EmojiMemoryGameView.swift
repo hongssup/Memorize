@@ -11,12 +11,11 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        HStack { //(spacing: 0)
-            ForEach(viewModel.cards) { card in
-                CardView(card: card).onTapGesture {
-                    self.viewModel.choose(card: card)
-                }
+        Grid(viewModel.cards) { card in
+            CardView(card: card).onTapGesture {
+                self.viewModel.choose(card: card)
             }
+            .padding(5)
         }
             .padding()
             .foregroundColor(Color.orange)
@@ -33,6 +32,7 @@ struct CardView: View {
     }
     
     func body(for size: CGSize) -> some View {
+        // ViewBuilder: function that could build these complicated View
         ZStack {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)

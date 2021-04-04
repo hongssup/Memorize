@@ -12,7 +12,7 @@ struct MemoryGame<CardContent> {
     
     mutating func choose(card: Card) {
         print("card chosen: \(card)")
-        let chosenIndex: Int = self.index(of: card)
+        let chosenIndex: Int = cards.firstIndex(matching: card)
         self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp // 복사하지 않고 바로 배열안의 값을 바꿔줌.
     }
     
